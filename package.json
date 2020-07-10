@@ -1,7 +1,7 @@
 {
-  "name": "nuvemshop-kampana",
+  "name": "nuvemshop",
   "version": "1.0.0",
-  "description": "Facilitador de chamadas para métodos de requisição HTTP para API da plataforma NuvemShop",
+  "description": "Facilitador de chamadas para métodos de requisição HTTP integrado a API da plataforma NuvemShop",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +10,15 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorhugomarques/nuvemshop.git"
+  },
+  "keywords": ["nuvemshop", "kampana", "kampana-digital", "nuvemshop-kampana"],
+  "bugs": {
+    "url": "https://github.com/victorhugomarques/nuvemshop/issues"
+  },
+  "homepage": "https://github.com/victorhugomarques/nuvemshop#readme"
 }
