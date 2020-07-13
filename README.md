@@ -8,20 +8,20 @@ npm i nuvemshop
 
 Setando os parâmetros de consulta a partir de um objeto.
 ```js
-const { listCustomers, getCustomer } = require("nuvemshop");
+const nuvemshop = require("nuvemshop");
 //
-const config = {
+nuvemshop.config({
         store_id: "Id da loja",
         access_token: "Token de acesso",
         user_agent: "Usuário de acesso"
-    };
+    });
 ```
 
 Funções:
-- listCustomers(config): 
+- listCustomers(): 
     Essa função lista todos os clientes para uma determinada loja.
 
-- getCustomer(config, id): 
+- getCustomer(id): 
     Essa função lista um cliente, passando-se o seu "id".
 
 
@@ -29,15 +29,16 @@ Funções:
 
 # listCustomers
 ```js
-const { listCustomers } = require("nuvemshop");
+const nuvemshop = require("nuvemshop");
 //
 const app = async () => {
-    const config = {
+    nuvemshop.config({
         store_id: "Id da loja",
         access_token: "Token de acesso",
         user_agent: "Usuário de acesso"
-    };
-    const listarClientes = await listCustomers(config);
+    });
+    //
+    const listarClientes = await nuvemshop.listCustomers();
     console.log(listarClientes);
 }
 //
@@ -45,16 +46,17 @@ app();
 ```
 # getCustomer
 ```js
-const { getCostumer } = require("nuvemshop");
+const nuvemshop = require("nuvemshop");
 //
 const app = async () => {
-    const config = {
+    nuvemshop.config({
         store_id: "Id da loja",
         access_token: "Token de acesso",
         user_agent: "Usuário de acesso"
-    };
+    });
+    //
     const id = "12345678";
-    const cliente = await getCostumer(config, id);
+    const cliente = await nuvemshop.getCostumer(id);
     console.log(cliente);
 }
 //
