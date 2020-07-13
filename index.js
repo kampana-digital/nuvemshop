@@ -1,18 +1,16 @@
 const axios = require('axios');
-
-const listCustomers = async (config) => {
-    const auth = {
-        store_id: config.store_id,
-        access_token: config.access_token,
-        user_agent: config.user_agent
-    };
-    console.log(config);
+//
+let obj = {};
+//
+const config = (newConfig) => obj = newConfig;
+//
+const listCustomers = async () => {
     try {
-        const api = `https://api.nuvemshop.com.br/v1/${auth.store_id}`;
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
         const customers = (await axios.get(api + '/customers', {
             headers: {
-                'Authentication': auth.access_token,
-                'User-Agent': auth.user_agent
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agent
             }
         })).data;
         return customers;
@@ -21,19 +19,13 @@ const listCustomers = async (config) => {
     }
 }
 //
-const getCustomer = async (config, customer_id) => {
-    const auth = {
-        store_id: config.store_id,
-        access_token: config.access_token,
-        user_agent: config.user_agent
-    };
-    console.log(config);
+const getCustomer = async (customer_id) => {
     try {
-        const api = `https://api.nuvemshop.com.br/v1/${auth.store_id}`;
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
         const customer = (await axios.get(api + `/customers/${customer_id}`, {
             headers: {
-                'Authentication': auth.access_token,
-                'User-Agent': auth.user_agent
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
             }
         })).data;
         return customer;
@@ -43,7 +35,7 @@ const getCustomer = async (config, customer_id) => {
 }
 //
 module.exports = {
+    config,
     listCustomers,
     getCustomer
-};
-
+}
