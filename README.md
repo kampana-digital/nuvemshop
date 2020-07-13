@@ -8,7 +8,7 @@ npm i nuvemshop
 
 Setando os parâmetros de consulta a partir de um objeto.
 ```js
-const { listCostumers, getCustomer } = require("nuvemshop");
+const { listCustomers, getCustomer } = require("nuvemshop");
 //
 const config = {
         store_id: "Id da loja",
