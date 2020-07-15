@@ -34,8 +34,169 @@ const getCustomer = async (customer_id) => {
     }
 }
 //
+const getStore = async () => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const store = (await axios.get(api + '/store', {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
+            }
+        })).data;
+        return store;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+//
+const listProducts = async () => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const products = (await axios.get(api + '/products', {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agent
+            }
+        })).data;
+        return products;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+//
+const getProduct = async (product_id) => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const product = (await axios.get(api + `/products/${product_id}`, {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
+            }
+        })).data;
+        return product;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+//
+const getProductVariants = async (product_id) => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const variants = (await axios.get(api + `/products/${product_id}/variants`, {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
+            }
+        })).data;
+        return variants;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+const getProductVariantsById = async (product_id, variant_id) => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const variants = (await axios.get(api + `/products/${product_id}/variants/${variant_id}`, {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
+            }
+        })).data;
+        return variants;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+//
+const getProductImages = async (product_id) => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const images = (await axios.get(api + `/products/${product_id}/images`, {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
+            }
+        })).data;
+        return images;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+//
+const listCategories = async () => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const categories = (await axios.get(api + '/categories', {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
+            }
+        })).data;
+        return categories;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+//
+const getCategory = async (category_id) => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const categories = (await axios.get(api + `/categories/${category_id}`, {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
+            }
+        })).data;
+        return categories;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+//
+const listOrders = async () => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const orders = (await axios.get(api + '/orders', {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
+            }
+        })).data;
+        return orders;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+//
+const getOrder = async (order_id) => {
+    try {
+        const api = `https://api.nuvemshop.com.br/v1/${obj.store_id}`;
+        const order = (await axios.get(api + `/orders/${order_id}`, {
+            headers: {
+                'Authentication': obj.access_token,
+                'User-Agent': obj.user_agents
+            }
+        })).data;
+        return order;
+    } catch(e) {
+        console.log(e.response.statusText);
+    }
+}
+//
+module.exports
+
 module.exports = {
     config,
     listCustomers,
-    getCustomer
+    getCustomer,
+    getStore,
+    listProducts,
+    getProduct,
+    getProductVariants,
+    getProductVariantsById,
+    getProductImages,
+    listCategories,
+    getCategory,
+    listOrders,
+    getOrder,
 };
