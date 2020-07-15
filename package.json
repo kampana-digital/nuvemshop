@@ -1,6 +1,6 @@
 {
   "name": "nuvemshop",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Facilitador de chamadas para métodos de requisição HTTP integrado a API da plataforma NuvemShop",
   "main": "index.js",
   "scripts": {
