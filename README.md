@@ -51,7 +51,7 @@ Funções:
 - listOrders: 
     Essa função retorna um vetor(array) com todas as ordens de pedidos realizados para uma determinada loja.
 
-= getOrder:
+- getOrder:
     Essa função retorna um único objeto de uma order contendo sus informações cadastrais, passando-se o seu "id".
 
 **Exemplos**:
