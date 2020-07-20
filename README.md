@@ -17,7 +17,7 @@ nuvemshop.config({
     });
 ```
 
-Funções:
+### Funções:
 - getStore():
     Essa função retorna um vetor(array) com todas as informações cadastrais referentes a loja/empresa.
 
@@ -54,7 +54,126 @@ Funções:
 - getOrder:
     Essa função retorna um único objeto de uma order contendo sus informações cadastrais, passando-se o seu "id".
 
-**Exemplos**:
+### Filtros:
+
+Lista com parâmetros de filtro para as funções de listagem de entidade: 
+
+## listStore
+
+| Parâmetro      | Explicação                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| fields         | Lista de campos separados por vírgula a serem incluídos na resposta                              |
+
+## listCustomers
+
+| Parâmetro      | Explicação                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| since_id       | Restringir resultados para após o ID especificado                                         |
+| created_at_min | Mostrar clientes criados após a data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))       |
+| created_at_max | Mostrar clientes criados antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))      |
+| updated_at_min | Mostrar a última atualização dos clientes após a data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))  |
+| updated_at_max | Mostrar a última atualização dos clientes antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) |
+| page           | Página a mostrar                                                                                     |
+| per_page       | Quantidade de resultados                                                                                |
+| fields         | Lista de campos separados por vírgula a serem incluídos na resposta                                       |
+| q              | Pesquisar clientes que contenham o texto fornecido em seu nome, email ou identificação               |
+
+## listCategories
+
+| Parâmetro      | Explicação                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| since_id       | Restringir resultados para após o ID especificado                                         |
+| language       | Especifique o idioma de pesquisa                                                                     |
+| handle         | Mostrar categorias com um determinado URL                                                                  |
+| parent_id      | Mostrar categorias com uma determinada categoria pai                                                   |
+| created_at_min | Mostrar categorias criados após a data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))       |
+| created_at_max | Mostrar categorias criados antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))      |
+| updated_at_min | Mostrar a última atualização das categorias após a data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))  |
+| updated_at_max | Mostrar a última atualização das categorias antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) |
+| page           | Página a mostrar                                                                                     |
+| per_page       | Quantidade de resultados                                                                                |
+| fields         | Lista de campos separados por vírgula a serem incluídos na resposta                                       |
+
+## listProducts
+
+| Parâmetro      | Explicação                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| since_id       | Restringir resultados para após o ID especificado                                                       |
+| language       | Especifique o idioma de pesquisa                                                                         |
+| q              | Pesquisar produtos que contenham o texto fornecido em seu nome, descrição ou SKU                    |
+| handle         | Mostrar produtos com um determinado URL                                                                   |
+| category_id    | Mostrar produtos com uma determinada categoria                                                             |
+| published      | Mostrar produtos por status publicado. Os valores válidos são "true" ou "false"                |
+| free_shipping  | Mostrar produtos pelo status free_shipping. Os valores válidos são "true" ou "false"          |
+| created_at_min | Mostrar produtos criados após a data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))      |
+| created_at_max | Mostrar produtos criados antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))     |
+| updated_at_min | Mostrar produtos atualizados pela última vez após a data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) |
+| updated_at_max | Mostrar produtos atualizados pela última vez antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))|
+| sort_by        | Classificar produtos por um critério específico (I.E.: sort_by=created-at-ascending)              |
+| page           | Página a mostrar                                                                                      |
+| per_page       | Quantidade de resultados                                                                                 |
+| fields         | Lista de campos separados por vírgula a serem incluídos na resposta                                      |
+
+## 
+
+| Critérios de ordenação            | Explicação                                                                       |
+| ----------------------------------| -------------------------------------------------------------------------------- |
+| user                              | Classificação definida manualmente pelo usuário                                  |
+| price-ascending, cost-ascending   | Classificar por preço ascendente                                                 |
+| price-descending, cost-descending | Classificar por preço decrescente                                                |
+| alpha-ascending, name-ascending   | Classificar por Nome do produto ascendente                                       |
+| alpha-descending, name-descending | Classificar por nome do produto decrescente                                      |
+| created-at-ascending              | Classificar por data de criação crescente                                        |
+| created-at-descending             | Classificar por data de criação decrescente                                      |
+| best-selling                      | Classificar por número de produtos vendidos descendente                          |
+
+## getProductVariants
+
+| Parâmetro      | Explicação                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| since_id       | Restringir resultados para após o ID especificado                                                        |
+| created_at_min | Mostrar variantes do produto criadas após a data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))       |
+| created_at_max | Mostrar variantes de produto criadas antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))      |
+| updated_at_min | Mostrar variantes do produto atualizadas após a data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))  |
+| updated_at_max | Mostrar variantes do produto atualizadas pela última vez antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601)) |
+| page           | Página a mostrar                                                                               |
+| per_page       | Quantidade de resultados                                                                           |
+| fields         | Lista de campos separados por vírgula a serem incluídos na respost                                       |
+
+## getProductImages
+
+| Parâmetro      | Explicação                                                                                       |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| since_id       | Restringir resultados para após o ID especificado                                                |
+| src            | Mostrar imagens do produto com um determinado URL                                                |
+| position       | Mostrar imagens do produto em uma determinada posição                                            |
+| page           | Página a mostrar                                                                                 |
+| per_page       | Quantidade de resultados                                                                         |
+| fields         | Lista de campos separados por vírgula a serem incluídos na resposta                              |
+
+## listOrders
+
+| Parâmetro      | Explicação                                                                                                  |
+| -------------- | ----------------------------------------------------------------------------------------------------------- |
+| since_id       | Restringir resultados para após o ID especificado                                                                 |
+| status         | Mostrar pedidos com um determinado estado. "any" é o padrão                                                        |
+| channels       | Restrinja os resultados ao canal de vendas especificado. "any" é o padrão (significa pedidos de pos, api, loja etc.) |
+| payment_status | Mostrar pedidos com um determinado estado de pagamento. "any" é o padrão (significa pedidos autorizados, pendentes e pagos) |
+| shipping_status| Mostrar pedidos com um determinado estado de entrega. "any" é o padrão                                            |
+| created_at_min | Mostrar pedidos criados após a data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))                   |
+| created_at_max | Mostrar pedidos criados antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))                  |
+| updated_at_min | Última atualização dos pedidos após a data do pedido ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))              |
+| updated_at_max | Última atualização dos pedidos antes da data ([ISO 8601 format](http://en.wikipedia.org/wiki/ISO_8601))             |
+| total_min      | Mostrar pedidos com valor total maior ou igual ao valor especificado                                     |
+| total_max      | Mostrar pedidos com valor total menor ou igual ao valor especificado                                      |
+| customer_ids   | Restrinja os resultados aos IDs de clientes especificados (separados por vírgula)                                          |
+| page           | Página a mostrar                                                                                               |
+| per_page       | Quantidade de resultados                                                                                           |
+| fields         | Lista de campos separados por vírgula a serem incluídos na resposta                                                   |
+| q              | Pesquisar pedidos pelo número especificado; ou contendo o texto fornecido no nome ou no email do cliente              |
+| app_id         | Mostrar pedidos criados por um determinado aplicativo                                                                        |
+
+### Exemplos:
 
 # getStore
 ```js
@@ -68,6 +187,8 @@ const app = async () => {
     });
     //
     const loja = await nuvemshop.getStore();
+    //Example passing filter on parameter
+    const loja = await nuvemshop.getStore("fields=id,name");
     console.log(loja);
 }
 //
@@ -85,6 +206,8 @@ const app = async () => {
     });
     //
     const clientes = await nuvemshop.listCustomers();
+    //Example passing filter on parameter
+    const clientes = await nuvemshop.listCustomers("since_id=1000&fields=id,name");
     console.log(clientes);
 }
 //
@@ -120,6 +243,8 @@ const app = async () => {
     });
     //
     const categorias = await nuvemshop.listCategories();
+    //Example passing filter on parameter
+    const categorias = await nuvemshop.listCategories("since_id=1000&fields=id,name");
     console.log(categorias);
 }
 //
@@ -155,6 +280,8 @@ const app = async () => {
     });
     //
     const produtos = await nuvemshop.listProducts();
+    //Example passing filter on parameter
+    const produtos = await nuvemshop.listProducts("since_id=1000&fields=id,name");
     console.log(produtos);
 }
 //
@@ -191,6 +318,8 @@ const app = async () => {
     //
     const id = "xxxxx";
     const variantes_produto = await nuvemshop.getProductVariants(id);
+    //Example passing filter on parameter
+    const variantes_produto = await nuvemshop.getProductVariants(id, "since_id=1000&fields=id,name");
     console.log(variantes_produto);
 }
 //
@@ -228,6 +357,8 @@ const app = async () => {
     //
     const id = "xxxxx";
     const produto_imagens = await nuvemshop.getProductImages(id);
+    //Example passing filter on parameter
+    const produto_imagens = await nuvemshop.getProductImages(id, "since_id=1000&fields=id,name");
     console.log(produto_imagens);
 }
 //
@@ -245,6 +376,8 @@ const app = async () => {
     });
     //
     const pedidos = await nuvemshop.listOrders();
+    //Example passing filter on parameter
+    const pedidos = await nuvemshop.listOrders("since_id=1000&fields=id,name");
     console.log(pedidos);
 }
 //
